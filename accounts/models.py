@@ -4,7 +4,7 @@ from django.urls import reverse
 
 # Create your models here.
 
-from evaluation_project import settings
+from typ import settings
 
 
 class User(AbstractUser):
