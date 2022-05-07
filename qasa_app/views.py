@@ -9,7 +9,7 @@ from accounts.auth_decorators import allowed_groups
 from core.models import Evaluation, EvaluationSubmission, School, Department, AcademicYear, Program, Course, \
     Facilitator
 # Create your views here.
-from evaluation_project import settings
+from typ import settings
 from qasa_app.forms import AcademicYearForm, SchoolForm, CreateDepartmentForm, CreateProgramForm, CreateCourseForm, \
     SetupEvaluationForm, AddFacilitatorForm
 
