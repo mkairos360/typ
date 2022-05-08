@@ -17,7 +17,7 @@ class EvaluationAdmin(admin.ModelAdmin):
 
 
 class CourseAdmin(admin.ModelAdmin):
-    list_display = ['name', 'facilitator']
+    list_display = ['name', 'facilitator', 'course_code','course_group','program']
     list_filter = ['name', 'facilitator']
 
     prepopulated_fields = {'slug': ['name','course_group']}

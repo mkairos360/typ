@@ -25,8 +25,9 @@ SECRET_KEY = 'django-insecure-2sjrmg8p3hoe5c9tz-+&z$#zdfyw$rv7!a#+1y9(imr!#kp$e+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['fdeeff2b-b95b-40c4-9b67-4315de998554.id.repl.co','typ-1.ralphkay.repl.co']
 
+X_FRAME_OPTIONS = '*'
 
 # Application definition
 
@@ -43,8 +44,12 @@ INSTALLED_APPS = [
     'qasa_app'
 ]
 AUTH_USER_MODEL = 'accounts.User'
+
+CSRF_TRUSTED_ORIGINS = ['https://*','http://*', 'https://*.ralphkay.repl.co']
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -52,6 +57,8 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 ROOT_URLCONF = 'typ.urls'
 
@@ -80,8 +87,12 @@ WSGI_APPLICATION = 'typ.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'lpbzayeu',
+        'USER': 'lpbzayeu',
+        'PASSWORD': 'b0gJX1xvgcgtbmaWRmBptZd1nRGXYvly',
+        'HOST': 'rogue.db.elephantsql.com',
+        'PORT': ''
     }
 }
 
@@ -120,7 +131,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = BASE_DIR / "staticfiles"
 STATIC_URL = '/static/'
 
 # Extra places for collectstatic to find static files.
